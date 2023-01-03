@@ -23,7 +23,7 @@ chr_dict_path = '../transcripts_locations.pkl'
 transcripts_fasta_path = '../gencode.v40.transcripts.fa'
 
 # set output directory
-output_dir = "../csv_data/out/"
+output_dir = "/out/"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

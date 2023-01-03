@@ -94,6 +94,6 @@ if __name__ == '__main__':
             out_path = f'/Users/kelimelech/PycharmProjects/transcripts/g4_data_prep/demo/'
             with open(out_path + "test.fa", 'w+') as f:
                 for i, s in enumerate(test['seq']):
-                    header = 'a'
+                    header = ' '
                     f.write(f">{header}\n{s}\n")
             test.to_csv(out_path + '/test.csv', index=False, sep=',')
