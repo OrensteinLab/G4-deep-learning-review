@@ -1,3 +1,5 @@
+import argparse
+
 import pandas as pd
 import numpy as np
 
@@ -83,17 +85,23 @@ def read_files(pos_f, neg_f):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--data', dest="data_path", help='Path to G4 data directory that contains K and KPDS dir with pos and neg data'
+                        , type=str)
+
+    parser.add_argument('-o', '--out', dest="out_path", help='Output path', type=str)
+    args = parser.parse_args()
+
     environment = ['KPDS', 'K']
     negative_type = ['dishuffle', 'pq', 'random']
     for env in environment:
         for neg in negative_type:
-            pos_f = f'/Users/kelimelech/PycharmProjects/transcripts/g4_data_prep/{env}/pos_ex_{env}_125.fa'
-            neg_f = f'/Users/kelimelech/PycharmProjects/transcripts/g4_data_prep/{env}/neg_ex_{env}_{neg}_125.fa'
+            pos_f = args.data_path + f'/{env}/pos_ex_{env}_125.fa'
+            neg_f = args.data_path + f'../g4_data_prep/{env}/neg_ex_{env}_{neg}_125.fa'
             train, test = read_files(pos_f, neg_f)
             test['seq'] = 'NNN' + test['seq'].astype(str) + 'NNN'
-            out_path = f'/Users/kelimelech/PycharmProjects/transcripts/g4_data_prep/demo/'
-            with open(out_path + "test.fa", 'w+') as f:
+            with open(args.out_path + "test.fa", 'w+') as f:
                 for i, s in enumerate(test['seq']):
                     header = ' '
                     f.write(f">{header}\n{s}\n")
-            test.to_csv(out_path + '/test.csv', index=False, sep=',')
+            test.to_csv(args.out_path + '/test.csv', index=False, sep=',')

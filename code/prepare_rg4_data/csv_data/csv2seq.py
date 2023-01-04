@@ -6,6 +6,10 @@ import pickle
 from Bio import SeqIO
 import re
 
+'''
+@author: Maor Turner
+'''
+
 # Execution:
 # under csv_data directory run:
 # csv2seq.py  <chr_dict_path> <transcripts_fasta_path>
@@ -14,13 +18,13 @@ FLANK_SIZE = 47
 SEQ_SIZE = 30
 
 # get path from command line
-# if len(sys.argv) != 3:
-#     print("ERROR:\n"
-#           "Execution: csv2seq.py  <chr_dict_path> <transcripts_fasta_path>\n"
-#           "Run under csv_data directory")
-#     exit(1)
-chr_dict_path = '../transcripts_locations.pkl'
-transcripts_fasta_path = '../gencode.v40.transcripts.fa'
+if len(sys.argv) != 3:
+    print("ERROR:\n"
+          "Execution: csv2seq.py  <chr_dict_path> <transcripts_fasta_path>\n"
+          "Run under csv_data directory")
+    exit(1)
+chr_dict_path = sys.argv[1]
+transcripts_fasta_path = sys.argv[2]
 
 # set output directory
 output_dir = "/out/"

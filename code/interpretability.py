@@ -109,5 +109,3 @@ if __name__ == '__main__':
 
     run_calc_rg4detector_on_g4detector_interpretability(args.rg4_path)
     run_calc_g4detector_on_rg4detector_interpretability(args.g4_path)
-    # rg4_path = '/Users/kelimelech/PycharmProjects/transcripts/run_rg4_detector/'
-    # g4_path = '/Users/kelimelech/PycharmProjects/transcripts/run_g4_detector/'

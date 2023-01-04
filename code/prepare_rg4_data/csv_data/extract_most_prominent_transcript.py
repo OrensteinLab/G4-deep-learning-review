@@ -6,6 +6,10 @@ from time import time
 import sys
 import pandas as pd
 
+'''
+@author: Maor Turner
+'''
+
 chr_dict = {}
 
 
@@ -318,11 +322,11 @@ def get_transcript_and_position(pos_list, tr_list, rsr_list, reads_list, strand)
 
 if __name__ == "__main__":
 
-    # if len(sys.argv) != 3:
-    #     print("ERROR:\nExecution: extract_most_prominent_transcript.py <gff3_path> <output_dir>")
-    #     exit(1)
-    src = '/data/gencode.v40.primary_assembly.annotation.gff3.gz'
-    dst = '/run_mismatch/out'
+    if len(sys.argv) != 3:
+        print("ERROR:\nExecution: extract_most_prominent_transcript.py <gff3_path> <output_dir>")
+        exit(1)
+    src = sys.argv[1]
+    dst = sys.argv[2]
 
     # Set output directory
     if not os.path.exists(dst):
