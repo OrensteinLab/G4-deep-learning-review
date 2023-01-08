@@ -42,5 +42,5 @@ To run models interpretability you'll need the following parameters:
     parser.add_argument("-g4", dest="g4_path", help="path to rg4 data and g4 predicts"
 
 ```
-python visualization.py -rg4 <path to g4 data and rg4 predicts output> -g4 <path to rg4 data and g4 predicts>
+python code/visualization.py -rg4 <path to g4 data and rg4 predicts output> -g4 <path to rg4 data and g4 predicts>
 ```
