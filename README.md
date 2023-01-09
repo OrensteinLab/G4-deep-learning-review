@@ -36,11 +36,11 @@ Clone G4 project and run
 python code/g4_inference.py -d <path to rG4 data fasta file> -m <path to G4 model> -o <path to output dir>
 ```
 
-### Interpretability
-To run models interpretability you'll need the following parameters:
-"-rg4", dest="rg4_path", help="path to g4 data and rg4 predicts")
-    parser.add_argument("-g4", dest="g4_path", help="path to rg4 data and g4 predicts"
+### Plot Generator
+To generate plots (AUC, scatter plot) you'll need the following parameters:
+-rg4 :path to g4 data and rg4 predicts
+-g4 : path to rg4 data and g4 predicts
 
 ```
-python code/visualization.py -rg4 <path to g4 data and rg4 predicts output> -g4 <path to rg4 data and g4 predicts>
+python code/plot_generator.py -rg4 <path to g4 data and rg4 predicts output> -g4 <path to rg4 data and g4 predicts>
 ```
