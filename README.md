@@ -38,6 +38,7 @@ python code/g4_inference.py -d <path to rG4 data fasta file> -m <path to G4 mode
 
 ### Plot Generator
 To generate plots (AUC, scatter plot) you'll need the following parameters:
+
 -rg4 :path to g4 data and rg4 predicts
 -g4 : path to rg4 data and g4 predicts
 
