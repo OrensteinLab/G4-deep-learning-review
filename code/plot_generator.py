@@ -55,14 +55,14 @@ def get_g4_scores(env, data_path):
     return scores, origin_score
 
 
-def run_calc_g4detector_on_rg4detector_interpretability(data_path):
+def run_plot_g4detector_on_rg4detector(data_path):
     scores_k, origin_score = get_g4_scores('K', data_path)
     plt_scatter_density(scores_k, origin_score, data_path)
 
 '''
 Figures and Pearson correlation of rG4detector (RNA) trained model on G4 (DNA) test set
 '''
-def run_calc_rg4detector_on_g4detector_interpretability(data_path):
+def run_plot_rg4detector_on_g4detector(data_path):
     scores_k = get_rg4_scores('K', data_path)
     scores_pds = get_rg4_scores('KPDS', data_path)
     plt_auroc(scores_k, 'K', data_path)
@@ -107,5 +107,5 @@ if __name__ == '__main__':
     parser.add_argument("-g4", dest="g4_path", help="path to rg4 data and g4 predicts")
     args = parser.parse_args()
 
-    run_calc_rg4detector_on_g4detector_interpretability(args.rg4_path)
-    run_calc_g4detector_on_rg4detector_interpretability(args.g4_path)
+    run_plot_rg4detector_on_g4detector(args.rg4_path)
+    run_plot_g4detector_on_rg4detector(args.g4_path)
